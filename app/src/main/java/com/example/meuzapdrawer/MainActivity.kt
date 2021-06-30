@@ -33,39 +33,53 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
             ), drawerLayout
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
 
+<<<<<<< HEAD
     //new
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         //coloca a opção de selecionar
         if(item.itemId == R.id.action_logout){
             AuthUI.getInstance().signOut(this).addOnCompleteListener {
+=======
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_settings){
+            AuthUI.getInstance().signOut(this).addOnCanceledListener {
+>>>>>>> 1ec7c81753675d6f53f034aec1c64115ed8a200b
                 val intent = Intent(this, LogInActivity::class.java)
                 startActivity(intent)
                 finish()
             }
+<<<<<<< HEAD
             return true
             //pode falhar ou n
         }
         return super.onOptionsItemSelected(item)
+=======
+
+            return true
+        }
+
+        return super.onContextItemSelected(item)
+>>>>>>> 1ec7c81753675d6f53f034aec1c64115ed8a200b
     }
 
     override fun onSupportNavigateUp(): Boolean {
