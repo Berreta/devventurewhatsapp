@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.meuzapdrawer.model.User
+import com.example.meuzapdrawer.repository.UserRepository
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
@@ -34,24 +36,40 @@ class LogInActivity : AppCompatActivity() {
                     .setAvailableProviders(providers)
                     .build()
             )
-
         }
-
     }
 
-    fun activityResult(resultCode: Int, data: Intent?) {
+    private fun activityResult(resultCode: Int, data: Intent?) {
 
             val response = IdpResponse.fromResultIntent(data)
 
             if (resultCode == Activity.RESULT_OK) {
-                val intent: Intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+                //se tiver logado o cara tem um valor
+                val current = FirebaseAuth.getInstance().currentUser?.apply {
+                    val user: User = User(name = this.displayName ?: "No Name",
+                    email = this.email ?: "no email", id = this.uid)
+                    UserRepository.addUser(user, {
+                        goToMain()
+                    }, {
+                        failToLogin(it)
+                    })
+                }
+
             } else {
-                Toast.makeText(this, response?.error?.message, Toast.LENGTH_LONG).show()
+               failToLogin(response?.error?.message)
 
             }
         }
+
+    private fun failToLogin(message: String?) {
+        val intent: Intent = Intent(this, LogInActivity::class.java)
+        startActivity(intent)
     }
 
+    private fun goToMain() {
+        val intent: Intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 }
+

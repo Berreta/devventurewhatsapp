@@ -53,33 +53,18 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-<<<<<<< HEAD
-    //new
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         //coloca a opção de selecionar
         if(item.itemId == R.id.action_logout){
             AuthUI.getInstance().signOut(this).addOnCompleteListener {
-=======
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_settings){
-            AuthUI.getInstance().signOut(this).addOnCanceledListener {
->>>>>>> 1ec7c81753675d6f53f034aec1c64115ed8a200b
                 val intent = Intent(this, LogInActivity::class.java)
                 startActivity(intent)
                 finish()
             }
-<<<<<<< HEAD
             return true
             //pode falhar ou n
         }
         return super.onOptionsItemSelected(item)
-=======
-
-            return true
-        }
-
-        return super.onContextItemSelected(item)
->>>>>>> 1ec7c81753675d6f53f034aec1c64115ed8a200b
     }
 
     override fun onSupportNavigateUp(): Boolean {
