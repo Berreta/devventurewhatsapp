@@ -20,8 +20,7 @@ class LogInActivity : AppCompatActivity() {
         val providers = arrayListOf(
             AuthUI.IdpConfig.EmailBuilder().build() ,
             AuthUI.IdpConfig.GoogleBuilder().build()
-
-//provider
+            //provider
         )
 
         findViewById<Button>(R.id.btnLogin).setOnClickListener {
@@ -43,18 +42,12 @@ class LogInActivity : AppCompatActivity() {
             val response = IdpResponse.fromResultIntent(data)
 
             if (resultCode == Activity.RESULT_OK) {
-                // Successfully signed in
-                //val user = FirebaseAuth.getInstance().currentUser
-                // ...
                 val intent: Intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
                 Toast.makeText(this, response?.error?.message, Toast.LENGTH_LONG).show()
-                // Sign in failed. If response is null the user canceled the
-                // sign-in flow using the back button. Otherwise check
-                // response.getError().getErrorCode() and handle the error.
-                // ...
+
             }
         }
     }
