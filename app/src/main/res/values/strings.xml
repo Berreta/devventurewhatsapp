@@ -12,4 +12,6 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="login">Login</string>
     <string name="whatsapp">whatsapp</string>
+    <string name="nome">Nome</string>
+    <string name="detalhes">Detalhes</string>
 </resources>
