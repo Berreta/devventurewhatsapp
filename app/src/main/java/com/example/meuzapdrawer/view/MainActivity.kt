@@ -1,4 +1,4 @@
-package com.example.meuzapdrawer
+package com.example.meuzapdrawer.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.example.meuzapdrawer.R
 import com.example.meuzapdrawer.databinding.ActivityMainBinding
 import com.firebase.ui.auth.AuthUI
 

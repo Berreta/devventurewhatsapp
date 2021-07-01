@@ -1,10 +1,10 @@
-package com.example.meuzapdrawer
+package com.example.meuzapdrawer.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.google.firebase.auth.FirebaseAuth
+import com.example.meuzapdrawer.R
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
