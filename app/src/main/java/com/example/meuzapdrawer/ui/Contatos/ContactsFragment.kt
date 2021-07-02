@@ -12,7 +12,7 @@ import com.example.meuzapdrawer.databinding.FragmentContactsBinding
 
 class ContactsFragment : Fragment() {
 
-    private lateinit var galleryViewModel: ContactsViewModel
+    private lateinit var contactsViewModel: ContactsViewModel
     private var _binding: FragmentContactsBinding? = null
 
     // This property is only valid between onCreateView and
@@ -24,7 +24,7 @@ class ContactsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var contactsViewModel = ViewModelProvider(this).get(ContactsViewModel::class.java)
+        contactsViewModel = ViewModelProvider(this).get(ContactsViewModel::class.java)
 
         _binding = FragmentContactsBinding.inflate(inflater, container, false)
         val root: View = binding.root
