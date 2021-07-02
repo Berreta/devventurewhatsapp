@@ -15,7 +15,7 @@ class ContactsAdapter(): RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val ContactName: TextView = itemView.findViewById(R.id.contact_name)
-        private val ContactDetail: TextView = itemView.findViewById(R.id.contact_detail)
+        private val ContactDetail: TextView = itemView.findViewById(R.id.contact_details)
         private val ContactImage: ImageView = itemView.findViewById(R.id.contact_image)
 
         fun setUser(Contact: Contact){

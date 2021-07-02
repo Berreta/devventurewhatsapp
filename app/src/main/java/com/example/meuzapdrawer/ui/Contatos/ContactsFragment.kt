@@ -37,9 +37,6 @@ class ContactsFragment : Fragment() {
 
         contactsList.adapter = adapter
 
-        //val textView: TextView = binding.textGallery
-        //galleryViewModel.text.observe(viewLifecycleOwner, Observer {
-        //    textView.text = it })
         return root
     }
 
