@@ -32,8 +32,10 @@ class ContactsFragment : Fragment() {
         val contactsList: RecyclerView = binding.contactsList
         val adapter: ContactsAdapter = ContactsAdapter()
         contactsViewModel.contactList.observe(viewLifecycleOwner, Observer {
-            adapter
+            adapter.setContactsList(it)
         })
+
+        contactsList.adapter = adapter
 
         //val textView: TextView = binding.textGallery
         //galleryViewModel.text.observe(viewLifecycleOwner, Observer {

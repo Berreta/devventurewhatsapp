@@ -11,7 +11,7 @@ import com.example.meuzapdrawer.model.Contact
 import com.example.meuzapdrawer.model.User
 
 class ContactsAdapter(): RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
-    var users: ArrayList<Contact> = ArrayList<Contact>()
+    var contact: ArrayList<Contact> = ArrayList<Contact>()
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val ContactName: TextView = itemView.findViewById(R.id.contact_name)
@@ -25,8 +25,8 @@ class ContactsAdapter(): RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
         }
 
     }
-    fun setContacts(Contacts: ArrayList<Contact>){
-        this.users = Contacts
+    fun setContactsList(Contacts: ArrayList<Contact>){
+        this.contact = Contacts
         notifyDataSetChanged()
 
     }
@@ -38,11 +38,11 @@ class ContactsAdapter(): RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.setUser(users[position])
+            holder.setUser(contact[position])
     }
 
     override fun getItemCount(): Int {
-        return users.size
+        return contact.size
     }
 
 
